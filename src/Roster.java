@@ -89,6 +89,7 @@ public class Roster {
         return cList.add(c);
     }
 
+    /** prints all student details and courses */
     public void printStudentDetails(long id){
         int i = searchStudent(id);
         if (i == -1) System.out.println("Student not found");
