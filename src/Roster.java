@@ -17,7 +17,10 @@ public class Roster {
      * If object was added returns true, else returns false. */
     public boolean addStudent(Student st){
         if (studentsList.contains(st))return false;
-        else return studentsList.add(st);
+        else {
+            size++;
+            return studentsList.add(st);
+        }
 
     }
 
@@ -28,6 +31,7 @@ public class Roster {
         if (i == -1)return false;
         else {
             studentsList.remove(i);
+            size--;
             return true;
         }
     }
