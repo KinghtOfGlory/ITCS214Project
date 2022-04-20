@@ -12,10 +12,10 @@ public class Student {
     public Student()
     {
         idNum = 0 ;
-        firstName = "";
-        lastName = "";
+        firstName = "notAssigned";
+        lastName = "notAssigned";
         gender = 'X';
-        email = "";
+        email = "notAssigned";
         coursesRegistered = new ArrayList<Course>(6);
     }
     public Student(long idNum,String firstName,String lastName,char gender,String email)
@@ -29,7 +29,7 @@ public class Student {
     }
 
 
-    public void setfirstName(String fName)
+    public void setFirstName(String fName)
     {firstName = fName;}
     public String getFirstName() {
         return firstName;

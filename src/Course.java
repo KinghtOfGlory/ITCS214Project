@@ -40,20 +40,18 @@ public class Course {
     public int getSection()
     {return section;}
 
-   /* public boolean equals(Course set)
+    public boolean equals(Course set)
     {
-            if (set.getCourseNum()==courseNum && set.getCourseName()== courseName
-        && set.getCredits()==credits && set.getSection()==section) return true;
-            else return false;
-    } */
+        return set.getCourseNum().equalsIgnoreCase(courseNum) && set.getCourseName().equals(courseName)
+                && set.getCredits() == credits && set.getSection() == section;
+    }
 
     public String toString()
     {
-        String results = "Course Number: " + courseNum
+        return "Course Number: " + courseNum
                 + "\nCourse Name: " + courseName
                 + "\nCredits: " + credits
-                + "\nSection: " + section ;
-        return results ;
+                + "\nSection: " + section;
     }
 
 }
