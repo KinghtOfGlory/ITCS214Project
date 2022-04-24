@@ -42,7 +42,7 @@ public class Course {
 
     public boolean equals(Course set)
     {
-        return set.getCourseNum().equalsIgnoreCase(courseNum) && set.getCourseName().equals(courseName)
+        return set.getCourseNum().equalsIgnoreCase(courseNum) && set.getCourseName().equalsIgnoreCase(courseName)
                 && set.getCredits() == credits && set.getSection() == section;
     }
 

@@ -16,7 +16,7 @@ public class Student {
         lastName = "notAssigned";
         gender = 'X';
         email = "notAssigned";
-        coursesRegistered = new ArrayList<Course>(6);
+        coursesRegistered = new ArrayList<Course>();
     }
     public Student(long idNum,String firstName,String lastName,char gender,String email)
     {
@@ -25,7 +25,7 @@ public class Student {
         this.lastName = lastName;
         this.gender = gender;
         this.email = email;
-        coursesRegistered = new ArrayList<Course>(6);
+        coursesRegistered = new ArrayList<Course>();
     }
 
 
@@ -57,18 +57,21 @@ public class Student {
     {idNum = IdNo;}
     public long getIdNum(){ return idNum; }
 
-   /* public boolean equals(Student set)
+    public boolean equals(Student set)
     {
         if(idNum==set.getIdNum())  return true;
-    }*/
+        else return false;
+    }
+
+
 
     public ArrayList<Course> getCoursesRegistered()
     { return coursesRegistered; }
+
     public void printCoursesRegistered()
     {
-
+        System.out.println(getCoursesRegistered());
     }
-
 
 
 }
