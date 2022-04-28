@@ -74,7 +74,7 @@ public class Student {
 // coursesRegistered Methods
     public void addCourse(Course course) //addCourse for setCoursesRegistered or adding a course in short
     { coursesRegistered.add(course); }
-    public ArrayList<Course> getCoursesRegistered() //getCoursesRegistered for getting a course registered(Discuss**)
+    public ArrayList<Course> getCoursesRegistered() //getCoursesRegistered for getting a course registered
     { return coursesRegistered; }
     public void printCoursesRegistered() //printCoursesRegistered for printing all courses and their Details from class Course
     {
