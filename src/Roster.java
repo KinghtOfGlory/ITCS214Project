@@ -1,4 +1,3 @@
-import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -7,7 +6,7 @@ public class Roster {
     private LinkedList<Student> studentsList;
     private int size;
 
-    /** Sets data members to default values. */
+    /** Default constructor without parameters. */
     public Roster(){
         studentsList = new LinkedList<Student>();
         size = 0;
@@ -36,8 +35,6 @@ public class Roster {
         }
     }
 
-    /** test */
-
     /** returns index of specified Student object in studentList according to provided idNum.
      * If object is not found returns -1. */
     public int searchStudent(long id){
@@ -56,7 +53,7 @@ public class Roster {
     /**  Returns instance variable size */
     public int listSize() { return size; }
 
-    /** Returns Student object in provided index from StudentList */
+    /** Returns Student object in provided index from studentList */
     public Student getStudent(int i){
         return studentsList.get(i);
     }

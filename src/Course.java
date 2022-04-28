@@ -1,18 +1,20 @@
 public class Course {
-    private String courseNum; /** course number */
-    private String courseName; /** course name */
-    private int credits; /** course credit hours value */
-    private int section; /** course section */
+    private String courseNum; //course number
+    private String courseName; //course name
+    private int credits; //course credit hours value
+    private int section; //course section
 
-    /** course class constructors */
-    public Course() /** constructor without parameters */
+    /** default constructor without parameters */
+    public Course()
     {
-        courseNum = "";
-        courseName = "";
+        courseNum = "notAssigned";
+        courseName = "notAssigned";
         credits = 0;
         section = 0;
     }
-    public Course(String Num,String Name,int cred, int sec) /** constructor with 4 parameters */
+
+    /** constructor with 4 parameters */
+    public Course(String Num,String Name,int cred, int sec)
     {
         courseNum = Num;
         courseName = Name;
@@ -20,37 +22,15 @@ public class Course {
         section = sec;
     }
 
-    /** course number methods */
-    public void setCourseNum(String Num) /** setting course number string value */
-    {courseNum = Num;}
-    public String getCourseNum() /** getting a course number string value */
-    {return courseNum;}
-
-    /** course name methods */
-    public void setCourseName(String Name) /** setting a course name string value */
-    {courseName = Name ;}
-    public String getCourseName() /** getting a course name string value */
-    {return courseName;}
-
-    /** credits methods */
-    public void setCredits(int cred) /** setting credits integer value */
-    {credits = cred;}
-    public int getCredits() /** getting credits integer value */
-    {return credits;}
-
-    /** section methods */
-    public void setSection(int sec) /** setting section integer value */
-    {section = sec;}
-    public int getSection() /** getting section integer value */
-    {return section;}
-
-    public boolean equals(Course set) /** comparing between two courses full data(Course Number/Name/credits/Section) */
+    /** compares between two courses full data(Course Number/Name/credits/Section) */
+    public boolean equals(Course set)
     {
         return set.getCourseNum().equalsIgnoreCase(courseNum) && set.getCourseName().equalsIgnoreCase(courseName)
                 && set.getCredits() == credits && set.getSection() == section;
     }
 
-    public String toString() /** data used to convert from Course data type to String data type */
+    /**converts from Course data type to String data type */
+    public String toString()
     {
         return "Course Number: " + courseNum
                 + "\nCourse Name: " + courseName
@@ -58,5 +38,39 @@ public class Course {
                 + "\nSection: " + section
                 +"\n" ;
     }
+
+    //-------------------Getters and setters-----------------------
+    /** setting course number string value */
+    public void setCourseNum(String Num)
+    {courseNum = Num;}
+
+    /** getting a course number string value */
+    public String getCourseNum()
+    {return courseNum;}
+
+    /** setting a course name string value */
+    public void setCourseName(String Name)
+    {courseName = Name ;}
+
+    /** getting a course name string value */
+    public String getCourseName()
+    {return courseName;}
+
+    /** setting credits integer value */
+    public void setCredits(int cred)
+    {credits = cred;}
+
+    /** getting credits integer value */
+    public int getCredits()
+    {return credits;}
+
+    /** setting section integer value */
+    public void setSection(int sec)
+    {section = sec;}
+
+    /** getting section integer value */
+    public int getSection()
+    {return section;}
+
 
 }
