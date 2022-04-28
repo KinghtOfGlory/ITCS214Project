@@ -6,6 +6,7 @@ public class main {
         Course c1 = new Course("ITCS214","Data Structures",3,2);
         Course c2 = new Course("Hrlc107","Human Rights",2,1);
 
+        System.out.println("Hi");
         Student a1 = new Student();
         a1.addCourse(c1);
         a1.addCourse(c2);
