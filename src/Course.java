@@ -32,11 +32,11 @@ public class Course {
     /**converts from Course data type to String data type */
     public String toString()
     {
-        return "Course Number: " + courseNum
-                + "\nCourse Name: " + courseName
-                + "\nCredits: " + credits
-                + "\nSection: " + section
-                +"\n" ;
+        return  courseNum
+                + "\t" + courseName
+                + "\t" + credits
+                + "H\tSec" + section
+                +"" ;
     }
 
     //-------------------Getters and setters-----------------------

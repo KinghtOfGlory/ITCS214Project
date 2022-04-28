@@ -31,16 +31,12 @@ public class Student {
         coursesRegistered = new ArrayList<Course>();
     }
 
-    /** getting id number integer value */
-    public long getIdNum(){ return idNum; }
-
     /** comparing between two id numbers */
     public boolean equals(Student set)
     {
         if(idNum==set.getIdNum())  return true;
         else return false;
     }
-
 
     /**addCourse for setCoursesRegistered or adding a course in short */
     public void addCourse(Course course)
@@ -94,4 +90,8 @@ public class Student {
     /** setting id number integer value */
     public void setIdNum (long IdNo)
     {idNum = IdNo;}
+
+    /** getting id number integer value */
+    public long getIdNum(){ return idNum; }
+
 }
