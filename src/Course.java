@@ -55,7 +55,8 @@ public class Course {
         return "Course Number: " + courseNum
                 + "\nCourse Name: " + courseName
                 + "\nCredits: " + credits
-                + "\nSection: " + section;
+                + "\nSection: " + section
+                +"\n" ;
     }
 
 }

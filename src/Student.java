@@ -79,7 +79,7 @@ public class Student {
     public void printCoursesRegistered() //printCoursesRegistered for printing all courses and their Details from class Course
     {
         for (int i =0; i<coursesRegistered.size();i++)
-        { System.out.println(coursesRegistered.get(i)+"\n"); }
+        { System.out.println(coursesRegistered.get(i)); }
 
     }
 
