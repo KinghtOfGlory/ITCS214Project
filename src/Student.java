@@ -39,25 +39,25 @@ public class Student {
     //lastName methods
     public void setLastName(String lName) /** setting a lastName String Value */
     {lastName =lName;}
-    public String getLastName() /**getting a lastName String value*/
+    public String getLastName() /** getting a lastName String value */
     {return lastName;}
 
     //gender methods
-    public void setGender(char Gen) /**setting a gender char value (character)*/
+    public void setGender(char Gen) /** setting a gender char value (character) */
     {gender = Gen;}
-    public char getGender() /**getting a gender char value (character)*/
+    public char getGender() /** getting a gender char value (character) */
     {return gender;}
 
     /**email methods*/
-    public void setEmail(String elecMail) /**setting email string value*/
+    public void setEmail(String elecMail) /** setting email string value */
     {email = elecMail;}
-    public String getEmail() /**getting email string value*/
+    public String getEmail() /** getting email string value */
     {return email;}
 
     //id number methods*/
-    public void setIdNum (long IdNo) /**setting id number integer value*/
+    public void setIdNum (long IdNo) /** setting id number integer value */
     {idNum = IdNo;}
-    public long getIdNum(){ return idNum; } /**getting id number integer value*/
+    public long getIdNum(){ return idNum; } /** getting id number integer value */
 
     //comparing between two id numbers*/
     public boolean equals(Student set)
@@ -68,11 +68,11 @@ public class Student {
 
 
     /** coursesRegistered Methods*/
-    public void addCourse(Course course) /**addCourse for setCoursesRegistered or adding a course in short*/
+    public void addCourse(Course course) /**addCourse for setCoursesRegistered or adding a course in short */
     { coursesRegistered.add(course); }
-    public ArrayList<Course> getCoursesRegistered() /**getCoursesRegistered for getting a course registered*/
+    public ArrayList<Course> getCoursesRegistered() /** getCoursesRegistered for getting a course registered */
     { return coursesRegistered; }
-    public void printCoursesRegistered() /**printCoursesRegistered for printing all courses and their Details from class Course*/
+    public void printCoursesRegistered() /** printCoursesRegistered for printing all courses and their Details from class Course */
     {
         for (int i =0; i<coursesRegistered.size();i++)
         { System.out.println(coursesRegistered.get(i)); }
@@ -82,11 +82,11 @@ public class Student {
     /** an outer Example to test the work of the program*/
     public static void main(String[]args)
     {
-        /**course class constructors*/
+        /** course class constructors */
         Course c1 = new Course("ITCS214","Data Structures",3,2);
         Course c2 = new Course("Hrlc107","Human Rights",2,1);
 
-        /**student class constructor & methods*/
+        /** student class constructor & methods */
         Student a1 = new Student();
         a1.addCourse(c1);
         a1.addCourse(c2);
