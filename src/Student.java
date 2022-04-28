@@ -36,30 +36,30 @@ public class Student {
     public String getFirstName() /** getting a firstName String Value */
     { return firstName; }
 
-    //lastName methods
+    /** lastName methods */
     public void setLastName(String lName) /** setting a lastName String Value */
     {lastName =lName;}
     public String getLastName() /** getting a lastName String value */
     {return lastName;}
 
-    //gender methods
+    /** gender methods */
     public void setGender(char Gen) /** setting a gender char value (character) */
     {gender = Gen;}
     public char getGender() /** getting a gender char value (character) */
     {return gender;}
 
-    /**email methods*/
+    /** email methods */
     public void setEmail(String elecMail) /** setting email string value */
     {email = elecMail;}
     public String getEmail() /** getting email string value */
     {return email;}
 
-    //id number methods*/
+    /** id number methods */
     public void setIdNum (long IdNo) /** setting id number integer value */
     {idNum = IdNo;}
     public long getIdNum(){ return idNum; } /** getting id number integer value */
 
-    //comparing between two id numbers*/
+    /** comparing between two id numbers */
     public boolean equals(Student set)
     {
         if(idNum==set.getIdNum())  return true;
@@ -67,7 +67,7 @@ public class Student {
     }
 
 
-    /** coursesRegistered Methods*/
+    /** coursesRegistered Methods */
     public void addCourse(Course course) /**addCourse for setCoursesRegistered or adding a course in short */
     { coursesRegistered.add(course); }
     public ArrayList<Course> getCoursesRegistered() /** getCoursesRegistered for getting a course registered */
@@ -79,7 +79,7 @@ public class Student {
 
     }
 
-    /** an outer Example to test the work of the program*/
+    /** an outer Example to test the work of the program */
     public static void main(String[]args)
     {
         /** course class constructors */
