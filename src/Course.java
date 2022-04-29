@@ -35,8 +35,7 @@ public class Course {
         return  courseNum
                 + "\t" + courseName
                 + "\t" + credits
-                + "H\tSec" + section
-                +"" ;
+                + "H\tSec" + section ;
     }
 
     //-------------------Getters and setters-----------------------
