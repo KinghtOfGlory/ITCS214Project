@@ -1,3 +1,5 @@
+import java.awt.desktop.PreferencesEvent;
+
 public class Course {
     private String courseNum; //course number
     private String courseName; //course name
@@ -25,17 +27,23 @@ public class Course {
     /** compares between two courses full data(Course Number/Name/credits/Section) */
     public boolean equals(Course set)
     {
-        return set.getCourseNum().equalsIgnoreCase(courseNum) && set.getCourseName().equalsIgnoreCase(courseName)
-                && set.getCredits() == credits && set.getSection() == section;
+        return set.getCourseNum().equalsIgnoreCase(courseNum);
     }
 
-    /**converts from Course data type to String data type */
+    /** converts Course data to String */
     public String toString()
     {
-        return  courseNum
-                + "\t" + courseName
-                + "\t" + credits
-                + "H\tSec" + section ;
+        String result = courseNum;
+        while (true){
+            if (result.length() == 12)result = result.concat(courseName);
+            else if (result.length() == 44)result = result.concat(credits + "H");
+            else if (result.length() == 50) {
+                result = result.concat("Sec" + section);
+                return result;
+            }else result = result.concat(" ");
+
+        }
+
     }
 
     //-------------------Getters and setters-----------------------

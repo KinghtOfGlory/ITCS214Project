@@ -21,7 +21,7 @@ public class Student {
     }
 
     /** constructor with 5 parameters */
-    public Student(long idNum,String firstName,String lastName,char gender,String email)
+    public Student(long idNum,char gender,String firstName,String lastName,String email)
     {
         this.idNum = idNum ;
         this.firstName = firstName;
