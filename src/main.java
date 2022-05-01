@@ -48,7 +48,7 @@ public class main {
                 +s1.getLastName() +"\t"+s1.getGender() +"\t"+s1.getEmail());
 
         /**Second Class & Data Check*/
-        Student s2 = new Student(20190002,"Abdulla","Mohammed",'M'
+        Student s2 = new Student(20190002,'M',"Abdulla","Mohammed"
                 ,"AbdolMoh008@Outlook.com");
 
         System.out.println(s2.getIdNum()+"\t"+ s2.getFirstName() +"\t"

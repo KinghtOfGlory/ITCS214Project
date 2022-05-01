@@ -15,11 +15,11 @@ public class Roster {
     /** Adds Student object provided to studentList if not already existed.
      * If object was added returns true, else returns false. */
     public boolean addStudent(Student st){
-        if (studentsList.contains(st))return false;
-        else {
+        for (int i = 0;i < studentsList.size();i++){
+            if (studentsList.get(i).equals(st))return false;
+        }
             size++;
             return studentsList.add(st);
-        }
 
     }
 
@@ -68,13 +68,18 @@ public class Roster {
         int i = searchStudent(id);
         if (i == -1)return false;
         ArrayList<Course> cList = studentsList.get(i).getCoursesRegistered();
-        if (cList.contains(c))return false;
+        for (int j = 0;j<cList.size();j++){
+            if (cList.get(j).equals(c)) {
+               return false;
+            }
+        }
         int sum = c.getCredits();
-        for (int j = 0;j <cList.size();j++){
-            sum += cList.get(i).getCredits();
+        for (int j = 0;j<cList.size();j++) {
+            sum += cList.get(j).getCredits();
         }
         if (sum > 18)return false;
         return cList.add(c);
+
     }
 
     /** Deletes Course object from certain Student object in studentList if and only if:
@@ -86,8 +91,13 @@ public class Roster {
         int i = searchStudent(id);
         if (i == -1)return false;
         ArrayList<Course> cList = studentsList.get(i).getCoursesRegistered();
-        if (!cList.contains(c))return false;
-        return cList.add(c);
+        for (int j = 0;j<cList.size();j++){
+            if (cList.get(j).equals(c)) {
+                cList.remove(j);
+                return true;
+            }
+        }
+        return false;
     }
 
     /** prints all student details and courses */

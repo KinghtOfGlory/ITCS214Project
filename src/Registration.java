@@ -23,7 +23,8 @@ public class Registration {
                     (1) Add new student.
                     (2) Edit existing student.
                     (3) Print student's details.
-                    (4) Quit.""");
+                    (4) View all students.
+                    (6) Quit.""");
             switch (read.nextInt()){
                 default -> System.out.println("Invalid number, choose from given.");
                 case 1 -> {
@@ -31,6 +32,7 @@ public class Registration {
                             Enter student's information in order.
                             (ID number) (Gender M or F) (First and last name) (Email)""");
                     id = read.nextLong();
+                    if (id == 0)break;
                     while (true) {
                         gender = read.next();
                         if (gender.equalsIgnoreCase("m")) {
@@ -41,22 +43,27 @@ public class Registration {
                             break;
                         } else System.out.println("Invalid gender, choose M or F");
                     }
-                    stList.addStudent(new Student(id, g, read.next(), read.next(), read.next()));
-                    System.out.println("""
-                            Student added, choose next action.
-                            (1) Add courses.
-                            (0) Home.""");
-                    home = false;
-                    while (!home){
-                        switch (read.nextInt()) {
-                            default -> System.out.println("Invalid number, use given.");
-                            case 1 -> addCourses(id);
-                            case 0 -> home = true;
+                    if (stList.addStudent(new Student(id, g, read.next(), read.next(), read.next()))) {
+                        System.out.println("""
+                                  Student added, choose next action.
+                                  (1) Add courses.
+                                  (0) Home.""");
+                        home = false;
+                        while (!home) {
+                            switch (read.nextInt()) {
+                                default -> System.out.println("Invalid number, use given.");
+                                case 1 -> addCourses(id);
+                                case 0 -> home = true;
+                            }
                         }
                     }
                 }
                 case 2 -> {
                     home = false;
+                    if (stList.isEmpty()){
+                        System.out.println("There are no students to edit.");
+                        home = true;
+                    }
                     while (!home){
                         System.out.print("Enter student's ID number: ");
                         id = read.nextLong();
@@ -151,7 +158,22 @@ public class Registration {
                     System.out.print("Enter student's ID number: ");
                     stList.printStudentDetails(read.nextLong());
                 }
-                case 4 -> end = true;
+                case 4 -> {
+                    for (int i = 0; i<stList.listSize();i++){
+                        Student st = stList.getStudent(i);
+                        String result = "(" + (i + 1) + ")" + st.getIdNum();
+                        while (true){
+                            if (result.length() == 14)result = result.concat(String.valueOf(st.getGender()));
+                            else if (result.length() == 17)result = result.concat(st.getFirstName() + " " + st.getLastName());
+                            else if (result.length() == 32) {
+                                result = result.concat(st.getEmail());
+                                break;
+                            }
+                            else result = result.concat(" ");
+                        }
+                    }
+                }
+                case 5 -> end = true;
             }
         }
 
