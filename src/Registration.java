@@ -13,7 +13,8 @@ public class Registration {
     private static final Roster stList = new Roster();
 
     public static void main(String[] args) {
-
+        String gender;
+        char g = 'X';
         boolean end = false, home = false;
         long id;
         while (!end){
@@ -24,15 +25,22 @@ public class Registration {
                     (3) Print student's details.
                     (4) Quit.""");
             switch (read.nextInt()){
+                default -> System.out.println("Invalid number, choose from given.");
                 case 1 -> {
                     System.out.println("""
                             Enter student's information in order.
                             (ID number) (Gender M or F) (First and last name) (Email)""");
                     id = read.nextLong();
-                    String gender = read.next();
-                    char g = 'X';
-                    if (gender.equalsIgnoreCase("m") || gender.equalsIgnoreCase("male")) g = 'M';
-                    else if (gender.equalsIgnoreCase("f") || gender.equalsIgnoreCase("female")) g = 'F';
+                    while (true) {
+                        gender = read.next();
+                        if (gender.equalsIgnoreCase("m")) {
+                            g = 'M';
+                            break;
+                        } else if (gender.equalsIgnoreCase("f")) {
+                            g = 'F';
+                            break;
+                        } else System.out.println("Invalid gender, choose M or F");
+                    }
                     stList.addStudent(new Student(id, g, read.next(), read.next(), read.next()));
                     System.out.println("""
                             Student added, choose next action.
@@ -41,9 +49,9 @@ public class Registration {
                     home = false;
                     while (!home){
                         switch (read.nextInt()) {
+                            default -> System.out.println("Invalid number, use given.");
                             case 1 -> addCourses(id);
                             case 0 -> home = true;
-                            default -> System.out.println("Invalid number, use given.");
                         }
                     }
                 }
@@ -55,17 +63,83 @@ public class Registration {
                         if (id == 0)home = true;
                         else if (stList.searchStudent(id) == -1) System.out.println("Student does not exist.");
                         else {
-                            System.out.println("""
+                            home = false;
+                            while (!home){
+                                System.out.println("""
                                     Choose option.
                                     (1) Edit student's information.
                                     (2) Edit student's courses.
                                     (3) Delete student.
                                     (0) Home.""");
-                            while (!home){
                                 switch (read.nextInt()){
+                                    default -> System.out.println("Invalid number, choose from given.");
                                     case 1 -> {
+                                        System.out.println("""
+                                                Choose data to change.
+                                                (1) ID number.
+                                                (2) Gender.
+                                                (3) Full name.
+                                                (4) Email.
+                                                (0) Home.""");
+                                        boolean back = false;
+                                        while (!back){
+                                            switch (read.nextInt()){
+                                                default -> System.out.println("Invalid number, choose from given.");
+                                                case 1 -> {
+                                                    System.out.print("Enter new ID number: ");
+                                                    Student st = stList.getStudent(stList.searchStudent(id));
+                                                    id = read.nextLong();
+                                                    st.setIdNum(id);
+                                                    System.out.println("ID number changed");
+                                                    back = true;
+                                                }
+                                                case 2 -> {
+                                                    System.out.print("Enter new gender (M or F): ");
+                                                    while (true){
+                                                        gender = read.next();
+                                                        if (gender.equalsIgnoreCase("m")){
+                                                            g = 'M';break;
+                                                        }
+                                                        else if (gender.equalsIgnoreCase("f")){
+                                                            g = 'F';break;
+                                                        }else System.out.println("Invalid key, choose M or F");
+
+                                                        stList.getStudent(stList.searchStudent(id)).setGender(g);
+                                                        System.out.println("Gender changed.");
+                                                        back = true;
+                                                    }
+                                                }
+                                                case 3 -> {
+                                                    System.out.print("Enter new name: ");
+                                                    stList.getStudent(stList.searchStudent(id)).setFirstName(read.next());
+                                                    stList.getStudent(stList.searchStudent(id)).setLastName(read.next());
+                                                    System.out.println("Name changed.");
+                                                    back = true;
+                                                }
+                                                case 4 -> {
+                                                    System.out.print("Enter new email: ");
+                                                    stList.getStudent(stList.searchStudent(id)).setEmail(read.next());
+                                                    System.out.println("Email changed.");
+                                                    back = true;
+                                                }
+                                                case 0 -> {
+                                                    back = true;
+                                                    home = true;
+                                                }
+                                            }
+                                        }
 
                                     }
+                                    case 2 -> {
+                                        addCourses(id);
+                                        home = true;
+                                    }
+                                    case 3 -> {
+                                        stList.deleteStudent(id);
+                                        System.out.println("Student deleted.");
+                                        home = true;
+                                    }
+                                    case 0 -> home = true;
                                 }
                             }
 
@@ -73,6 +147,11 @@ public class Registration {
 
                     }
                 }
+                case 3 -> {
+                    System.out.print("Enter student's ID number: ");
+                    stList.printStudentDetails(read.nextLong());
+                }
+                case 4 -> end = true;
             }
         }
 
