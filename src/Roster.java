@@ -66,10 +66,14 @@ public class Roster {
      * If Course object is added returns true, else returns false. */
     public boolean addCourse(Course c, long id){
         int i = searchStudent(id);
-        if (i == -1)return false;
+        if (i == -1) {
+            System.out.println("Student does not exist.");
+            return false;
+        }
         ArrayList<Course> cList = studentsList.get(i).getCoursesRegistered();
         for (int j = 0;j<cList.size();j++){
             if (cList.get(j).equals(c)) {
+                System.out.println("Course already registered");
                return false;
             }
         }
@@ -77,7 +81,10 @@ public class Roster {
         for (int j = 0;j<cList.size();j++) {
             sum += cList.get(j).getCredits();
         }
-        if (sum > 18)return false;
+        if (sum > 18) {
+            System.out.println("Credit hours exceeded");
+            return false;
+        }
         return cList.add(c);
 
     }
@@ -89,7 +96,10 @@ public class Roster {
      * if Course object is deleted returns true, else returns false. */
     public boolean deleteCourse(Course c, long id){
         int i = searchStudent(id);
-        if (i == -1)return false;
+        if (i == -1) {
+            System.out.println("Student does not exist.");
+            return false;
+        }
         ArrayList<Course> cList = studentsList.get(i).getCoursesRegistered();
         for (int j = 0;j<cList.size();j++){
             if (cList.get(j).equals(c)) {
@@ -97,6 +107,7 @@ public class Roster {
                 return true;
             }
         }
+        System.out.println("Course not registered to student");
         return false;
     }
 
@@ -106,10 +117,11 @@ public class Roster {
         if (i == -1) System.out.println("Student not found");
         else {
             Student st = studentsList.get(i);
-            System.out.println("---Student details---\nID number:" + st.getIdNum()
+            System.out.println("---Student's details---\nID number:" + st.getIdNum()
                     + "\nName: " + st.getFirstName() + " " + st.getLastName()
                     + "\nGender: " + st.getGender()
-                    + "\nEmail: " + st.getEmail());
+                    + "\nEmail: " + st.getEmail()
+                    + "\n---Student's courses---");
             st.printCoursesRegistered();
         }
     }

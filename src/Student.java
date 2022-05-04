@@ -38,10 +38,6 @@ public class Student {
         else return false;
     }
 
-    /**addCourse for setCoursesRegistered or adding a course in short */
-    public void addCourse(Course course)
-    { coursesRegistered.add(course); }
-
     /** getCoursesRegistered for getting a course registered */
     public ArrayList<Course> getCoursesRegistered()
     { return coursesRegistered; }

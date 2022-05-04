@@ -1,30 +1,103 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 public class Registration {
     private static final Course[] coursesAvailable = {
             new Course("ITCS214", "Data Structures", 3, 0)
-            , new Course("ENGL219", "Technical Report Writing ", 3, 0)
+            , new Course("ENGL219", "Technical Report Writing", 3, 0)
             , new Course("STAT273", "Probability and Statistics", 3, 0)
             , new Course("ITSE201", "Intro. to Software Engineering", 3, 0)
             , new Course("PHYCS102", "General Physics II ", 4, 0)
-            , new Course("MATHS102", "Calculus II", 3, 0)
+            , new Course("MATHS102", "Calculus II", 3, 0
+            )
     };
     private static final Scanner read = new Scanner(System.in);
     private static final Roster stList = new Roster();
 
     public static void main(String[] args) {
+        System.out.println("\n-------Example of data printed using this program-------");
+
+        Course c1 = new Course();
+        System.out.println("Course No.\tCourse Name\t\t\t\t\tCredits\tSection");
+        System.out.println(c1.getCourseNum()+"\t"+ c1.getCourseName()
+                +"\t\t\t\t\t\t" + c1.getCredits() +"\t  Sec" +c1.getSection());
+
+        //Setters and Getters
+        c1.setCourseNum("ITCS214");
+        c1.setCourseName("Data Structure");
+        c1.setCredits(3);
+        c1.setSection(2);
+        System.out.println(c1.toString());
+
+        //Second Class & Data Check
+        Course c2 = new Course("ENGL219","Technical Report Writing",3,1);
+        System.out.println(c2.toString());
+
+        //equals
+        System.out.println("\nis the ITCS214 equal to the ENGL219 class: "+c1.equals(c2));
+
+        //Third Class & Data Check
+        Course c3 = c2 ;
+        System.out.println("If there was a class that had course number similar to the ENGL219 Course the answer " +
+                "would have been: "+c2.equals(c3));
+
+
+        //Student Methods
+        //First Class & Data Check
+        System.out.println("\nStudent Methods:-");
+        Student s1 = new Student();
+        System.out.println("ID Number\tFirst Name\tLast Name\tGender\tEmail");
+        System.out.println(s1.getIdNum()+"\t"+ s1.getFirstName() +"\t"
+                +s1.getLastName() +"\t"+s1.getGender() +"\t"+s1.getEmail());
+
+        //Setters and Getters
+        s1.setIdNum(20190001);
+        s1.setFirstName("Khawla");
+        s1.setLastName("Isa");
+        s1.setGender('F');
+        s1.setEmail("KhawJesus177@Outlook.com");
+
+        System.out.println(s1.getIdNum()+"\t"+ s1.getFirstName() +"\t"
+                +s1.getLastName() +"\t"+s1.getGender() +"\t"+s1.getEmail());
+
+        //Second Class & Data Check
+        Student s2 = new Student(20190002,'M',"Abdulla","Mohammed"
+                ,"AbdolMoh008@Outlook.com");
+
+        System.out.println(s2.getIdNum()+"\t"+ s2.getFirstName() +"\t"
+                +s2.getLastName() +"\t"+s2.getGender() +"\t"+s2.getEmail());
+
+        //Student Course-like Methods
+        stList.addStudent(s1);
+        stList.addCourse(c1, 20190001);
+        stList.addCourse(c2, 20190001);
+
+        //Print coursesRegistered
+        System.out.println("\nStudent 1 Courses:- \nCourse No.\tCourse Name\tCredits\tSection");
+        s1.printCoursesRegistered();
+
+        stList.addStudent(s2);
+        stList.addCourse(c2, 20190002);
+
+        //equals
+        System.out.println("Is the Id of Student 1 equal to student 2: "+s1.equals(s2));
+
+
+
+        //--------------Menu-driven System--------------
+        System.out.println("\n\n\n-------Starting menu-driven system-------");
         String gender;
         char g = 'X';
         boolean end = false, home = false;
         long id;
         while (!end){
             System.out.println("""
+                    
+                    
                     Welcome to the student registration system home, please choose one of the options below. *note: 0 always returns home.
                     (1) Add new student.
                     (2) Edit existing student.
                     (3) Print student's details.
                     (4) View all students.
-                    (6) Quit.""");
+                    (5) Quit.""");
             switch (read.nextInt()){
                 default -> System.out.println("Invalid number, choose from given.");
                 case 1 -> {
@@ -33,27 +106,35 @@ public class Registration {
                             (ID number) (Gender M or F) (First and last name) (Email)""");
                     id = read.nextLong();
                     if (id == 0)break;
-                    while (true) {
-                        gender = read.next();
-                        if (gender.equalsIgnoreCase("m")) {
-                            g = 'M';
-                            break;
-                        } else if (gender.equalsIgnoreCase("f")) {
-                            g = 'F';
-                            break;
-                        } else System.out.println("Invalid gender, choose M or F");
-                    }
-                    if (stList.addStudent(new Student(id, g, read.next(), read.next(), read.next()))) {
-                        System.out.println("""
-                                  Student added, choose next action.
-                                  (1) Add courses.
-                                  (0) Home.""");
-                        home = false;
-                        while (!home) {
-                            switch (read.nextInt()) {
-                                default -> System.out.println("Invalid number, use given.");
-                                case 1 -> addCourses(id);
-                                case 0 -> home = true;
+
+                    if (stList.searchStudent(id) == -1){
+                        System.out.println("Student exists");
+                    }else {
+                        while (true) {
+                            gender = read.next();
+                            if (gender.equalsIgnoreCase("m")) {
+                                g = 'M';
+                                break;
+                            } else if (gender.equalsIgnoreCase("f")) {
+                                g = 'F';
+                                break;
+                            } else System.out.println("Invalid gender, choose M or F");
+                        }
+                        if (stList.addStudent(new Student(id, g, read.next(), read.next(), read.next()))) {
+                            System.out.println("""
+                                    Student added, choose next action.
+                                    (1) Add courses.
+                                    (0) Home.""");
+                            home = false;
+                            while (!home) {
+                                switch (read.nextInt()) {
+                                    default -> System.out.println("Invalid number, use given.");
+                                    case 1 -> {
+                                        addCourses(id);
+                                        home = true;
+                                    }
+                                    case 0 -> home = true;
+                                }
                             }
                         }
                     }
@@ -171,7 +252,9 @@ public class Registration {
                             }
                             else result = result.concat(" ");
                         }
+                        System.out.println(result);
                     }
+
                 }
                 case 5 -> end = true;
             }
