@@ -81,7 +81,6 @@ public class Registration {
         System.out.println("Is the Id of Student 1 equal to student 2: "+s1.equals(s2));
 
 
-        System.out.println(stList.listSize());
         //--------------Menu-driven System--------------
         System.out.println("\n\n\n-------Starting menu-driven system-------");
         String gender;
@@ -100,6 +99,9 @@ public class Registration {
                     (5) Quit.""");
             switch (read.nextInt()){
                 default -> System.out.println("Invalid number, choose from given.");
+                case 0 -> {
+                    System.out.println("You are already in home");
+                }
                 case 1 -> {
                     System.out.print("Enter student's ID number:");
                     id = read.nextLong();
