@@ -3,10 +3,12 @@ import java.awt.desktop.PreferencesEvent;
 public class Course {
     /**course number*/
     private String courseNum;
-
-    private String courseName; //course name
-    private int credits; //course credit hours value
-    private int section; //course section
+    /** course name */
+    private String courseName;
+    /** course credit hours value */
+    private int credits;
+    /** course section */
+    private int section;
 
     /** default constructor without parameters */
     public Course()

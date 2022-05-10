@@ -1,13 +1,18 @@
 import java.util.ArrayList;
 
 public class Student {
-
-    private long idNum; //student's id number
-    private String firstName; //student's first name
-    private String lastName; //student's last name
-    private char gender; //student's gender
-    private String email; //student's email
-    private ArrayList<Course> coursesRegistered; //student courses that are registered
+    /** student's id number */
+    private long idNum;
+    /** student's first name */
+    private String firstName;
+    /** student's last name */
+    private String lastName;
+    /** student's gender */
+    private char gender;
+    /** student's email */
+    private String email;
+    /** student courses that are registered */
+    private ArrayList<Course> coursesRegistered;
 
     /** default constructor without parameters */
     public Student()

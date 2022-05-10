@@ -3,7 +3,9 @@ import java.util.LinkedList;
 
 public class Roster {
 
+    /** LinkedList type variable of Student class called studentsList */
     private LinkedList<Student> studentsList;
+    /** Size of the LinkedList called studentsList */
     private int size;
 
     /** Default constructor without parameters. */
