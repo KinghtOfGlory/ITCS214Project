@@ -13,73 +13,6 @@ public class Registration {
     private static final Roster stList = new Roster();
 
     public static void main(String[] args) {
-        System.out.println("\n-------Example of data printed using this program-------");
-
-        Course c1 = new Course();
-        System.out.println("Course No.\tCourse Name\t\t\t\t\tCredits\tSection");
-        System.out.println(c1.getCourseNum()+"\t"+ c1.getCourseName()
-                +"\t\t\t\t\t\t" + c1.getCredits() +"\t  Sec" +c1.getSection());
-
-        //Setters and Getters
-        c1.setCourseNum("ITCS214");
-        c1.setCourseName("Data Structure");
-        c1.setCredits(3);
-        c1.setSection(2);
-        System.out.println(c1.toString());
-
-        //Second Class & Data Check
-        Course c2 = new Course("ENGL219","Technical Report Writing",3,1);
-        System.out.println(c2.toString());
-
-        //equals
-        System.out.println("\nis the ITCS214 equal to the ENGL219 class: "+c1.equals(c2));
-
-        //Third Class & Data Check
-        Course c3 = c2 ;
-        System.out.println("If there was a class that had course number similar to the ENGL219 Course the answer " +
-                "would have been: "+c2.equals(c3));
-
-
-        //Student Methods
-        //First Class & Data Check
-        System.out.println("\nStudent Methods:-");
-        Student s1 = new Student();
-        System.out.println("ID Number\tFirst Name\tLast Name\tGender\tEmail");
-        System.out.println(s1.getIdNum()+"\t"+ s1.getFirstName() +"\t"
-                +s1.getLastName() +"\t"+s1.getGender() +"\t"+s1.getEmail());
-
-        //Setters and Getters
-        s1.setIdNum(20190001);
-        s1.setFirstName("Khawla");
-        s1.setLastName("Isa");
-        s1.setGender('F');
-        s1.setEmail("KhawJesus177@Outlook.com");
-
-        System.out.println(s1.getIdNum()+"\t"+ s1.getFirstName() +"\t"
-                +s1.getLastName() +"\t"+s1.getGender() +"\t"+s1.getEmail());
-
-        //Second Class & Data Check
-        Student s2 = new Student(20190002,'M',"Abdulla","Mohammed"
-                ,"AbdolMoh008@Outlook.com");
-
-        System.out.println(s2.getIdNum()+"\t"+ s2.getFirstName() +"\t"
-                +s2.getLastName() +"\t"+s2.getGender() +"\t"+s2.getEmail());
-
-        //Student Course-like Methods
-        stList.addStudent(s1);
-        stList.addCourse(c1, 20190001);
-        stList.addCourse(c2, 20190001);
-
-        //Print coursesRegistered
-        System.out.println("\nStudent 1 Courses:- \nCourse No.\tCourse Name\tCredits\tSection");
-        s1.printCoursesRegistered();
-
-        stList.addStudent(s2);
-        stList.addCourse(c2, 20190002);
-
-        //equals
-        System.out.println("Is the Id of Student 1 equal to student 2: "+s1.equals(s2));
-
 
         //--------------Menu-driven System--------------
         System.out.println("\n\n\n-------Starting menu-driven system-------");
@@ -87,6 +20,7 @@ public class Registration {
         char g = 'X';
         boolean end = false, home = false;
         long id;
+        int exampleCount=0;
         while (!end){
             System.out.println("""
                     
@@ -96,7 +30,7 @@ public class Registration {
                     (2) Edit existing student.
                     (3) Print student's details.
                     (4) View all students.
-                    (5) Print example of all functions.
+                    (5) Print example of all functions, Note: meant to be used once.
                     (6) Quit.""");
             switch (read.nextInt()){
                 default -> System.out.println("Invalid number, choose from given.");
@@ -262,7 +196,15 @@ public class Registration {
                     }
 
                 }
-                case 5 -> example();
+                case 5 -> {
+                      if(exampleCount==0)
+                      {example();
+                    exampleCount++;}
+                      else
+                        System.out.println("the example data were printed once, please pick another option");
+
+                }
+
                 case 6 -> end = true;
             }
         }
@@ -317,6 +259,72 @@ public class Registration {
     }
 
     public static void example(){
+        System.out.println("\n-------Example of data printed using this program-------");
+
+        Course c1 = new Course();
+        System.out.println("Course No.\tCourse Name\t\t\t\t\tCredits\tSection");
+        System.out.println(c1.getCourseNum()+"\t"+ c1.getCourseName()
+                +"\t\t\t\t\t\t" + c1.getCredits() +"\t  Sec" +c1.getSection());
+
+        //Setters and Getters
+        c1.setCourseNum("ITCS214");
+        c1.setCourseName("Data Structure");
+        c1.setCredits(3);
+        c1.setSection(2);
+        System.out.println(c1.toString());
+
+        //Second Class & Data Check
+        Course c2 = new Course("ENGL219","Technical Report Writing",3,1);
+        System.out.println(c2.toString());
+
+        //equals
+        System.out.println("\nis the ITCS214 equal to the ENGL219 class: "+c1.equals(c2));
+
+        //Third Class & Data Check
+        Course c3 = c2 ;
+        System.out.println("If there was a class that had course number similar to the ENGL219 Course the answer " +
+                "would have been: "+c2.equals(c3));
+
+
+        //Student Methods
+        //First Class & Data Check
+        System.out.println("\nStudent Methods:-");
+        Student s1 = new Student();
+        System.out.println("ID Number\tFirst Name\tLast Name\tGender\tEmail");
+        System.out.println(s1.getIdNum()+"\t\t\t"+ s1.getFirstName() +"\t"
+                +s1.getLastName() +"\t"+s1.getGender() +"\t\t"+s1.getEmail());
+
+        //Setters and Getters
+        s1.setIdNum(20190001);
+        s1.setFirstName("Khawla");
+        s1.setLastName("Isa");
+        s1.setGender('F');
+        s1.setEmail("KhawIsa177@Outlook.com");
+
+        System.out.println(s1.getIdNum()+"\t"+ s1.getFirstName() +"\t\t"
+                +s1.getLastName() +"\t\t\t"+s1.getGender() +"\t\t"+s1.getEmail());
+
+        //Second Class & Data Check
+        Student s2 = new Student(20190002,'M',"Abdulla","Mohammed"
+                ,"AbdolMoh008@Outlook.com");
+
+        System.out.println(s2.getIdNum()+"\t"+ s2.getFirstName() +"\t\t"
+                +s2.getLastName() +"\t"+s2.getGender() +"\t\t"+s2.getEmail());
+
+        //Student Course-like Methods
+        stList.addStudent(s1);
+        stList.addCourse(c1, 20190001);
+        stList.addCourse(c2, 20190001);
+
+        //Print coursesRegistered
+        System.out.println("\nStudent 1 Courses:- \nCourse No.\tCourse Name\tCredits\tSection");
+        s1.printCoursesRegistered();
+
+        stList.addStudent(s2);
+        stList.addCourse(c2, 20190002);
+
+        //equals
+        System.out.println("Is the Id of Student 1 equal to student 2: "+s1.equals(s2));
 
     }
 }
