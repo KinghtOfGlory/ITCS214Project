@@ -1,7 +1,9 @@
 import java.awt.desktop.PreferencesEvent;
 
 public class Course {
-    private String courseNum; //course number
+    /**course number*/
+    private String courseNum;
+
     private String courseName; //course name
     private int credits; //course credit hours value
     private int section; //course section
@@ -24,7 +26,7 @@ public class Course {
         section = sec;
     }
 
-    /** compares between two courses full data(Course Number/Name/credits/Section) */
+    /** compares between two courses courseNum */
     public boolean equals(Course set)
     {
         return set.getCourseNum().equalsIgnoreCase(courseNum);
