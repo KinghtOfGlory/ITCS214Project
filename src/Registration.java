@@ -89,14 +89,15 @@ public class Registration {
         long id;
         while (!end){
             System.out.println("""
-                   
+                    
                     
                     Welcome to the student registration system home, please choose one of the options below. *note: 0 always returns home.
                     (1) Add new student.
                     (2) Edit existing student.
                     (3) Print student's details.
                     (4) View all students.
-                    (5) Quit.""");
+                    (5) Print example of all functions.
+                    (6) Quit.""");
             switch (read.nextInt()){
                 default -> System.out.println("Invalid number, choose from given.");
                 case 0 -> {
@@ -261,7 +262,8 @@ public class Registration {
                     }
 
                 }
-                case 5 -> end = true;
+                case 5 -> example();
+                case 6 -> end = true;
             }
         }
 
@@ -312,5 +314,9 @@ public class Registration {
 
             }
         }
+    }
+
+    public static void example(){
+
     }
 }
