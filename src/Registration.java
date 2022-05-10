@@ -81,7 +81,7 @@ public class Registration {
         System.out.println("Is the Id of Student 1 equal to student 2: "+s1.equals(s2));
 
 
-
+        System.out.println(stList.listSize());
         //--------------Menu-driven System--------------
         System.out.println("\n\n\n-------Starting menu-driven system-------");
         String gender;
@@ -90,7 +90,7 @@ public class Registration {
         long id;
         while (!end){
             System.out.println("""
-                    
+                   
                     
                     Welcome to the student registration system home, please choose one of the options below. *note: 0 always returns home.
                     (1) Add new student.
@@ -101,15 +101,16 @@ public class Registration {
             switch (read.nextInt()){
                 default -> System.out.println("Invalid number, choose from given.");
                 case 1 -> {
-                    System.out.println("""
-                            Enter student's information in order.
-                            (ID number) (Gender M or F) (First and last name) (Email)""");
+                    System.out.print("Enter student's ID number:");
                     id = read.nextLong();
                     if (id == 0)break;
 
-                    if (stList.searchStudent(id) == -1){
+                    if (stList.searchStudent(id) != -1){
                         System.out.println("Student exists");
                     }else {
+                        System.out.println("""
+                            Enter student's information in order.
+                            (Gender M or F) (First and last name) (Email)""");
                         while (true) {
                             gender = read.next();
                             if (gender.equalsIgnoreCase("m")) {
@@ -240,19 +241,21 @@ public class Registration {
                     stList.printStudentDetails(read.nextLong());
                 }
                 case 4 -> {
-                    for (int i = 0; i<stList.listSize();i++){
+
+                    for (int i = 0; i < stList.listSize();i++){
+                        String result = "";
                         Student st = stList.getStudent(i);
-                        String result = "(" + (i + 1) + ")" + st.getIdNum();
+                        result = result.concat("(" + (i + 1) + ")" + st.getIdNum());
                         while (true){
                             if (result.length() == 14)result = result.concat(String.valueOf(st.getGender()));
                             else if (result.length() == 17)result = result.concat(st.getFirstName() + " " + st.getLastName());
-                            else if (result.length() == 32) {
+                            else if (result.length() == 40) {
                                 result = result.concat(st.getEmail());
                                 break;
                             }
                             else result = result.concat(" ");
                         }
-                        System.out.println(result);
+                        System.out.println(result + "hi");
                     }
 
                 }

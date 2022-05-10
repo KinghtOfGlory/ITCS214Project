@@ -34,7 +34,7 @@ public class Student {
     /** comparing between two id numbers */
     public boolean equals(Student set)
     {
-        if(idNum==set.getIdNum())  return true;
+        if(this.idNum==set.getIdNum())  return true;
         else return false;
     }
 

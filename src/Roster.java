@@ -15,9 +15,7 @@ public class Roster {
     /** Adds Student object provided to studentList if not already existed.
      * If object was added returns true, else returns false. */
     public boolean addStudent(Student st){
-        for (int i = 0;i < studentsList.size();i++){
-            if (studentsList.get(i).equals(st))return false;
-        }
+        if (searchStudent(st.getIdNum()) != -1)return false;
             size++;
             return studentsList.add(st);
 
