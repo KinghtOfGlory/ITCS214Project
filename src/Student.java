@@ -1,20 +1,20 @@
 import java.util.ArrayList;
 
 public class Student {
-    /** student's id number */
+    /** Student's id number */
     private long idNum;
-    /** student's first name */
+    /** Student's first name */
     private String firstName;
-    /** student's last name */
+    /** Student's last name */
     private String lastName;
-    /** student's gender */
+    /** Student's gender */
     private char gender;
-    /** student's email */
+    /** Student's email */
     private String email;
-    /** student courses that are registered */
+    /** courses that are registered to Student */
     private ArrayList<Course> coursesRegistered;
 
-    /** default constructor without parameters */
+    /** Default constructor without parameters */
     public Student()
     {
         idNum = 0 ;

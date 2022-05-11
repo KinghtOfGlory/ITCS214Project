@@ -3,9 +3,9 @@ import java.util.LinkedList;
 
 public class Roster {
 
-    /** LinkedList type variable of Student class called studentsList */
+    /** LinkedList of type Student */
     private LinkedList<Student> studentsList;
-    /** Size of the LinkedList called studentsList */
+    /** Size of studentsList */
     private int size;
 
     /** Default constructor without parameters. */
@@ -117,7 +117,8 @@ public class Roster {
         if (i == -1) System.out.println("Student not found");
         else {
             Student st = studentsList.get(i);
-            System.out.println("---Student's details---\nID number:" + st.getIdNum()
+            System.out.println("---Student's details---"
+                    + "\nID number:" + st.getIdNum()
                     + "\nName: " + st.getFirstName() + " " + st.getLastName()
                     + "\nGender: " + st.getGender()
                     + "\nEmail: " + st.getEmail()

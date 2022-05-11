@@ -1,16 +1,16 @@
 import java.awt.desktop.PreferencesEvent;
 
 public class Course {
-    /**course number*/
+    /** Course number */
     private String courseNum;
-    /** course name */
+    /** Course name */
     private String courseName;
-    /** course credit hours value */
+    /** Course credit hours value */
     private int credits;
-    /** course section */
+    /** Course section */
     private int section;
 
-    /** default constructor without parameters */
+    /** Default constructor without parameters */
     public Course()
     {
         courseNum = "notAssigned";

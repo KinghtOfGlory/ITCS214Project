@@ -15,27 +15,26 @@ public class Registration {
     public static void main(String[] args) {
 
         //--------------Menu-driven System--------------
-        System.out.println("\n\n\n-------Starting menu-driven system-------");
+        System.out.println("\n-------Starting menu-driven system-------");
         String gender;
         char g = 'X';
-        boolean end = false, home = false;
+        boolean end = false, home = false, exampleUsed = false;
         long id;
-        int exampleCount=0;
         while (!end){
             System.out.println("""
                     
                     
-                    Welcome to the student registration system home, please choose one of the options below. *note: 0 always returns home.
+                    Welcome to the student registration system home, please choose one of the options below.(0 always returns home)
                     (1) Add new student.
                     (2) Edit existing student.
                     (3) Print student's details.
                     (4) View all students.
-                    (5) Print example of all functions, Note: meant to be used once.
+                    (5) Print example of all functions.(meant to be used once)
                     (6) Quit.""");
             switch (read.nextInt()){
                 default -> System.out.println("Invalid number, choose from given.");
                 case 0 -> {
-                    System.out.println("You are already in home");
+                    System.out.println("You are already in home menu");
                 }
                 case 1 -> {
                     System.out.print("Enter student's ID number:");
@@ -197,9 +196,10 @@ public class Registration {
 
                 }
                 case 5 -> {
-                      if(exampleCount==0)
-                      {example();
-                    exampleCount++;}
+                      if(!exampleUsed) {
+                          example();
+                          exampleUsed = true;
+                      }
                       else
                         System.out.println("the example data were printed once, please pick another option");
 
@@ -276,14 +276,14 @@ public class Registration {
         //Second Class & Data Check
         Course c2 = new Course("ENGL219","Technical Report Writing",3,1);
         System.out.println(c2.toString());
+        Course c3 = new Course("ENGL219","Technical Report Writing",3,7) ;
+        System.out.println(c3.toString());
 
         //equals
-        System.out.println("\nis the ITCS214 equal to the ENGL219 class: "+c1.equals(c2));
+        System.out.println("\nis the Course1 equal to the course2? "+c1.equals(c2));
 
         //Third Class & Data Check
-        Course c3 = c2 ;
-        System.out.println("If there was a class that had course number similar to the ENGL219 Course the answer " +
-                "would have been: "+c2.equals(c3));
+        System.out.println("\nis the Course2 equal to the course3? " + c2.equals(c3));
 
 
         //Student Methods
@@ -317,14 +317,14 @@ public class Registration {
         stList.addCourse(c2, 20190001);
 
         //Print coursesRegistered
-        System.out.println("\nStudent 1 Courses:- \nCourse No.\tCourse Name\tCredits\tSection");
+        System.out.println("\nStudent 1 Courses:- \nCourse No.\tCourse Name\t\t\t\t\tCredits\tSection");
         s1.printCoursesRegistered();
 
         stList.addStudent(s2);
         stList.addCourse(c2, 20190002);
 
         //equals
-        System.out.println("Is the Id of Student 1 equal to student 2: "+s1.equals(s2));
+        System.out.println("Is the Id of Student1 equal to student2: "+ s1.equals(s2));
 
     }
 }
