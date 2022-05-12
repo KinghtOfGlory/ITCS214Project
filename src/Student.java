@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 public class Student {
@@ -14,18 +15,14 @@ public class Student {
     /** courses that are registered to Student */
     private ArrayList<Course> coursesRegistered;
 
-    /** Default constructor without parameters */
+    /** Default constructor without parameters. */
     public Student()
     {
-        idNum = 0 ;
-        firstName = "notAssigned";
-        lastName = "notAssigned";
-        gender = 'X';
-        email = "notAssigned";
-        coursesRegistered = new ArrayList<Course>();
+        this(0, 'X', "notAssigned", "notAssigned", "notAssigned");
     }
 
-    /** constructor with 5 parameters */
+    /** Constructor with 5 parameters.
+     * @param idNum ID number */
     public Student(long idNum,char gender,String firstName,String lastName,String email)
     {
         this.idNum = idNum ;
@@ -33,66 +30,72 @@ public class Student {
         this.lastName = lastName;
         this.gender = gender;
         this.email = email;
-        coursesRegistered = new ArrayList<Course>();
+        coursesRegistered = new ArrayList<>();
     }
 
-    /** comparing between two id numbers */
+    /** Compares between two students id numbers and returns true if they are equal.
+     * @param set Student to be compared with*/
     public boolean equals(Student set)
     {
-        if(this.idNum==set.getIdNum())  return true;
-        else return false;
+        return this.idNum == set.getIdNum();
     }
 
-    /** getCoursesRegistered for getting a course registered */
+    /** Returns coursesRegistered array. */
     public ArrayList<Course> getCoursesRegistered()
     { return coursesRegistered; }
 
-    /** printCoursesRegistered for printing all courses and their Details from class Course */
+    /** Prints all courses in coursesRegistered array. */
     public void printCoursesRegistered()
     {
-        for (int i =0; i<coursesRegistered.size();i++)
-        { System.out.println(coursesRegistered.get(i)); }
+        for (Course course : coursesRegistered) {
+            System.out.println(course);
+        }
 
     }
 
     //-------------------Getters and setters-----------------------
-    /** setting a firstName String Value */
+    /** Sets first name to new value provided.
+     * @param fName new value*/
     public void setFirstName(String fName)
     {firstName = fName;}
 
-    /** getting a firstName String Value */
+    /** returns first name. */
     public String getFirstName()
     { return firstName; }
 
-    /** setting a lastName String Value */
+    /** Sets lastName to new value provided.
+     * @param lName new value*/
     public void setLastName(String lName)
     {lastName =lName;}
 
-    /** getting a lastName String value */
+    /** Returns last name. */
     public String getLastName()
     {return lastName;}
 
-    /** setting a gender char value (character) */
+    /** Sets gender to new value provided.
+     * @param Gen new value */
     public void setGender(char Gen)
     {gender = Gen;}
 
-    /** getting a gender char value (character) */
+    /** Returns gender. */
     public char getGender()
     {return gender;}
 
-    /** setting email string value */
-    public void setEmail(String elecMail)
-    {email = elecMail;}
+    /** Sets email to new value provided.
+     * @param nMail new value */
+    public void setEmail(String nMail)
+    {email = nMail;}
 
-    /** getting email string value */
+    /** Returns email. */
     public String getEmail()
     {return email;}
 
-    /** setting id number integer value */
+    /** Sets id number to new value provided.
+     * @param IdNo new value */
     public void setIdNum (long IdNo)
     {idNum = IdNo;}
 
-    /** getting id number integer value */
+    /** Returns id number. */
     public long getIdNum(){ return idNum; }
 
 }

@@ -1,4 +1,3 @@
-import java.awt.desktop.PreferencesEvent;
 
 public class Course {
     /** Course number */
@@ -19,7 +18,11 @@ public class Course {
         section = 0;
     }
 
-    /** constructor with 4 parameters */
+    /** Constructor with 4 parameters
+     * @param Num course number
+     * @param Name course name
+     * @param cred credit hours
+     * @param sec section*/
     public Course(String Num,String Name,int cred, int sec)
     {
         courseNum = Num;
@@ -28,13 +31,14 @@ public class Course {
         section = sec;
     }
 
-    /** compares between two courses courseNum */
+    /** Compares between two courses courseNum.
+     * @param set Course to be compared with*/
     public boolean equals(Course set)
     {
         return set.getCourseNum().equalsIgnoreCase(courseNum);
     }
 
-    /** converts Course data to String */
+    /** Converts Course data to String */
     public String toString()
     {
         String result = courseNum;
@@ -51,35 +55,39 @@ public class Course {
     }
 
     //-------------------Getters and setters-----------------------
-    /** setting course number string value */
+    /** sets course number to new value provided.
+     * @param Num new value */
     public void setCourseNum(String Num)
     {courseNum = Num;}
 
-    /** getting a course number string value */
+    /** Returns course number. */
     public String getCourseNum()
     {return courseNum;}
 
-    /** setting a course name string value */
+    /** Sets course name to new value provided.
+     * @param Name new value */
     public void setCourseName(String Name)
     {courseName = Name ;}
 
-    /** getting a course name string value */
+    /** Returns course name. */
     public String getCourseName()
     {return courseName;}
 
-    /** setting credits integer value */
+    /** Sets credit hours to new value provided.
+     * @param cred new value */
     public void setCredits(int cred)
     {credits = cred;}
 
-    /** getting credits integer value */
+    /** Return credit hours. */
     public int getCredits()
     {return credits;}
 
-    /** setting section integer value */
+    /** Sets section number to new value provided.
+     * @param sec new value */
     public void setSection(int sec)
     {section = sec;}
 
-    /** getting section integer value */
+    /** Returns section number. */
     public int getSection()
     {return section;}
 

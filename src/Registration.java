@@ -1,4 +1,6 @@
+
 import java.util.Scanner;
+
 public class Registration {
     private static final Course[] coursesAvailable = {
             new Course("ITCS214", "Data Structures", 3, 0)
@@ -18,7 +20,7 @@ public class Registration {
         System.out.println("\n-------Starting menu-driven system-------");
         String gender;
         char g = 'X';
-        boolean end = false, home = false, exampleUsed = false;
+        boolean end = false, home, exampleUsed = false;
         long id;
         while (!end){
             System.out.println("""
@@ -33,9 +35,7 @@ public class Registration {
                     (6) Quit.""");
             switch (read.nextInt()){
                 default -> System.out.println("Invalid number, choose from given.");
-                case 0 -> {
-                    System.out.println("You are already in home menu");
-                }
+                case 0 -> System.out.println("You are already in home menu");
                 case 1 -> {
                     System.out.print("Enter student's ID number:");
                     id = read.nextLong();
@@ -88,7 +88,6 @@ public class Registration {
                         if (id == 0)home = true;
                         else if (stList.searchStudent(id) == -1) System.out.println("Student does not exist.");
                         else {
-                            home = false;
                             while (!home){
                                 System.out.println("""
                                     Choose option.

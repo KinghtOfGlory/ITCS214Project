@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -10,7 +11,7 @@ public class Roster {
 
     /** Default constructor without parameters. */
     public Roster(){
-        studentsList = new LinkedList<Student>();
+        studentsList = new LinkedList<>();
         size = 0;
     }
 
@@ -71,15 +72,15 @@ public class Roster {
             return false;
         }
         ArrayList<Course> cList = studentsList.get(i).getCoursesRegistered();
-        for (int j = 0;j<cList.size();j++){
-            if (cList.get(j).equals(c)) {
+        for (Course course : cList) {
+            if (course.equals(c)) {
                 System.out.println("Course already registered");
-               return false;
+                return false;
             }
         }
         int sum = c.getCredits();
-        for (int j = 0;j<cList.size();j++) {
-            sum += cList.get(j).getCredits();
+        for (Course course : cList) {
+            sum += course.getCredits();
         }
         if (sum > 18) {
             System.out.println("Credit hours exceeded");
