@@ -25,7 +25,8 @@ public class Roster {
     }
 
     /** Deletes Student object from studentList according to provided idNum.
-     *  If object was deleted returns true, else returns false. */
+     *  If object was deleted returns true, else returns false.
+     *  @param id Student's ID number */
     public boolean deleteStudent(long id){
         int i = searchStudent(id);
         if (i == -1)return false;
@@ -37,7 +38,8 @@ public class Roster {
     }
 
     /** returns index of specified Student object in studentList according to provided idNum.
-     * If object is not found returns -1. */
+     * If object is not found returns -1.
+     * @param id Student's ID number */
     public int searchStudent(long id){
         for (int i = 0;i < size;i++){
             Student st = studentsList.get(i);
@@ -54,7 +56,8 @@ public class Roster {
     /**  Returns instance variable size */
     public int listSize() { return size; }
 
-    /** Returns Student object in provided index from studentList */
+    /** Returns Student object in provided index from studentList
+     * @param i Index of student*/
     public Student getStudent(int i){
         return studentsList.get(i);
     }
@@ -64,7 +67,9 @@ public class Roster {
      * (b)	Course object provided does not exist in the coursesRegistered list for the Student.
      * (c)	After adding the Course object, the number of credits, do not exceed 18.
      *
-     * If Course object is added returns true, else returns false. */
+     * If Course object is added returns true, else returns false.
+     * @param c Course to be added
+     * @param id Student's ID number */
     public boolean addCourse(Course c, long id){
         int i = searchStudent(id);
         if (i == -1) {
@@ -94,7 +99,9 @@ public class Roster {
      * (a) Student object with provided idNum exists in studentList.
      * (b) Course object provided exists in Student object selected.
      *
-     * if Course object is deleted returns true, else returns false. */
+     * if Course object is deleted returns true, else returns false.
+     * @param c Course to be deleted
+     * @param id Student's ID number */
     public boolean deleteCourse(Course c, long id){
         int i = searchStudent(id);
         if (i == -1) {
@@ -112,7 +119,8 @@ public class Roster {
         return false;
     }
 
-    /** prints all student details and courses */
+    /** prints all student details and courses
+     * @param id Student's ID number */
     public void printStudentDetails(long id){
         int i = searchStudent(id);
         if (i == -1) System.out.println("Student not found");

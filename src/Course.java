@@ -10,12 +10,8 @@ public class Course {
     private int section;
 
     /** Default constructor without parameters */
-    public Course()
-    {
-        courseNum = "notAssigned";
-        courseName = "notAssigned";
-        credits = 0;
-        section = 0;
+    public Course() {
+        this("notAssigned", "notAssigned", 0, 0);
     }
 
     /** Constructor with 4 parameters
@@ -23,15 +19,14 @@ public class Course {
      * @param Name course name
      * @param cred credit hours
      * @param sec section*/
-    public Course(String Num,String Name,int cred, int sec)
-    {
+    public Course(String Num,String Name,int cred, int sec) {
         courseNum = Num;
         courseName = Name;
         credits = cred;
         section = sec;
     }
 
-    /** Compares between two courses courseNum.
+    /** returns true if this course and course provided have the same course number.
      * @param set Course to be compared with*/
     public boolean equals(Course set)
     {
@@ -39,8 +34,7 @@ public class Course {
     }
 
     /** Converts Course data to String */
-    public String toString()
-    {
+    public String toString() {
         String result = courseNum;
         while (true){
             if (result.length() == 12)result = result.concat(courseName);
