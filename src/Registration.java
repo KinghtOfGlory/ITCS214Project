@@ -190,7 +190,7 @@ public class Registration {
                             }
                             else result = result.concat(" ");
                         }
-                        System.out.println(result + "hi");
+                        System.out.println(result);
                     }
 
                 }
