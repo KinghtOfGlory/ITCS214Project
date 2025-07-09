@@ -1,3 +1,6 @@
+/* Project by:-
+ * @Sand630
+ * @KnightOfGlory */
 
 public class Course {
     /** Course number */
