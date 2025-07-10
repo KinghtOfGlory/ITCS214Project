@@ -9,7 +9,7 @@
 A command-line Java application for managing student records, course registration, and academic information. 
 
 This Project was part of the Data Structures course in the sophomore year of the B.Sc
-in Software Engineering Study.
+in Software Engineering Study. in commercial use, please credit the author.
 
 ## Features
 - **Student Management**
